@@ -1,0 +1,43 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 11,
+        "name": "Login into the Everest Successor",
+        "description": "",
+        "id": "login-action;login-into-the-everest-successor;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 7007387500,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the user is on login page \"https://www.auction.com/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "https://www.auction.com/",
+                  "offset": 27
+                }
+              ],
+              "location": "JavaStepDefinition.user_on_login_page(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Login Action",
+    "description": "",
+    "id": "login-action",
+    "keyword": "Feature",
+    "uri": "C:/Users/rites/eclipse-workspace/AutomationBDD/src/main/java/Features/ESLogin.feature"
+  }
+]
