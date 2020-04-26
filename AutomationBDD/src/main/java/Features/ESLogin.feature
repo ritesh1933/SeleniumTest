@@ -1,4 +1,4 @@
-Feature: Login Action
+Feature: Login Action page
 
 Scenario Outline: Login into the Everest Successor
 
