@@ -1,5 +1,6 @@
 package StepDefinition;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -29,14 +30,17 @@ public class CRMlogin {
 	@When("^user enter username and password$")
 	public void enter_username_password()
 	{
-		
+		driver.findElement(By.name("email")).sendKeys("ritesh_mohit007@hotmail.com");
+		//'driver.findElement(By.name("password")).sendKeys("Tomtom$9987");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Tomtom$9987");
+				
 	}
-	
 	
 	
 	@Then("^user clicks on login button$")
 	public void click_login_button()
 	{
+		driver.findElement(By.xpath("//*[@class='ui fluid large blue submit button']")).click();
 		
 		
 	}
