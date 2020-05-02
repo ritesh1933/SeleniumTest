@@ -1,13 +1,16 @@
 package StepDefinition;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import junit.framework.Assert;
 
 
 
@@ -41,14 +44,18 @@ public class CRMlogin {
 	public void click_login_button()
 	{
 		driver.findElement(By.xpath("//*[@class='ui fluid large blue submit button']")).click();
-		
-		
+
 	}
+	
 	
 	
 	@And("^user is on home page$")
 	public void user_home_page()
 	{
+		//get the title of the page
+		String title = driver.getTitle();
+		System.out.println("Home page title ::" + title);
+		Assert.assertEquals("Cogmento CRM", title);
 		
 	}
 
