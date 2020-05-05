@@ -1,24 +1,18 @@
 package StepDefinition;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
-
-
-public class CRMlogin {
+public class CRMCreateNewContact {
 	
-	
+
 	WebDriver driver;
-	
 	
 	
 	@Given("^user is already on Login Page$")
@@ -30,10 +24,6 @@ public class CRMlogin {
 		driver.get("https://ui.cogmento.com/home");
 	}
 	
-//	url: "https://ui.cogmento.com/home"
-//  user name: ritesh_mohit007@hotmail.com
-//	password: Tomtom$9987
-
 	
 	@When("^user enter \"(.*)\" and \"(.*)\"$")
 	public void enter_username_password(String username, String password)
@@ -52,6 +42,7 @@ public class CRMlogin {
 	
 	
 	
+	
 	@Then("^user is on home page$")
 	public void user_home_page()
 	{
@@ -64,12 +55,18 @@ public class CRMlogin {
 	
 	
 	
-	@Then("^close the browser$")
-	public void close_browser()
+	@Then("^user moves to new contact page$")
+	public void click_on_contact()
 	{
-		driver.quit();
+		
 	}
 	
+	
+	@Then("user enters \"(.*)\" and \"(.*)\"  and \"(.*)\"$")
+	public void enter_contact_info()
+	{
+		
+	}
 	
 
 }
