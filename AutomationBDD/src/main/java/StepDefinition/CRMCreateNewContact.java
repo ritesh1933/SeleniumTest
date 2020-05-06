@@ -41,8 +41,6 @@ public class CRMCreateNewContact {
 	}
 	
 	
-	
-	
 	@Then("^user is on home page$")
 	public void user_home_page()
 	{
@@ -58,15 +56,21 @@ public class CRMCreateNewContact {
 	@Then("^user moves to new contact page$")
 	public void click_on_contact()
 	{
-		
+		driver.findElement(By.className("contacts")).click();
 	}
 	
 	
-	@Then("user enters \"(.*)\" and \"(.*)\"  and \"(.*)\"$")
-	public void enter_contact_info()
+	@Then("^user clicks on New button$")
+	public void click_on_new_button()
 	{
 		
 	}
 	
+
+	@Then("^user enters contact details \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+	public void enter_contact_details ()
+	{
+		
+	}
 
 }

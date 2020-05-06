@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions 
 	(
-	features = "C:\\Users\\rites\\git\\SeleniumTest\\AutomationBDD\\src\\main\\java\\Features\\CRMlogin.feature",  //The path of feature file
+	features = "C:\\Users\\rites\\git\\SeleniumTest\\AutomationBDD\\src\\main\\java\\Features\\CRMCreateNewContact.feature",  //The path of feature file
 	glue= {"StepDefinition"},  //The path of step definition file
 	format = {"pretty", "html:test-output","json:json_output/report.json","junit:junit_output/report.xml"}, //To generate different types of reporting
 	dryRun = false,
