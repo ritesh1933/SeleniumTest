@@ -3,15 +3,22 @@ Feature: Free CRM Create Contact
 Scenario Outline: Free CRM Create a New Contract
 
 Given user is already on Login Page
-When user enter "<username>" and "<password>"
+When user enter username and password
 Then user clicks on login button
 Then user is on home page
 Then user moves to new contact page
 Then user clicks on New button
 Then user enters contact details "<firstname>" and "<lastname>" and "<position>"
-Then close the browser
+Then user moves to new contact page
+Then user moves to new contact page
+Then user clicks on New button
+Then user enters contact details "<firstname1>" and "<lastname1>" and "<position1>"
+Then user moves to new contact page
+#Then close the browser
 
 
 Examples:
-	| username | password | firstname | lastname | position |
-	| ritesh_mohit007@hotmail.com | Tomtom$9987 | ritesh | bhatia | Manager |
+	| firstname | lastname | position | firstname1 | lastname1 | position1 |
+	| Yukte | bhatia | Manager | Bhavna | bhatia | Sales |
+	
+	
