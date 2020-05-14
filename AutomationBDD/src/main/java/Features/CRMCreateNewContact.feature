@@ -14,6 +14,8 @@ Then user moves to new contact page
 Then user clicks on New button
 Then user enters contact details "<firstname1>" and "<lastname1>" and "<position1>"
 Then user moves to new contact page
+Then user moves to new contact page
+Then user delete all contacts
 #Then close the browser
 
 

@@ -74,11 +74,32 @@ public class CRMCreateNewContact {
 	@Then("^user enters contact details \"(.*)\" and \"(.*)\" and \"(.*)\"$")
 	public void enter_contact_details(String firstname, String lastname, String position) throws InterruptedException
 	{
+		
 		driver.findElement(By.name("first_name")).sendKeys(firstname);
 		driver.findElement(By.name("last_name")).sendKeys(lastname);
 		driver.findElement(By.name("position")).sendKeys(position);
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[contains(text(),'Save')]")).click();
+		
+		Thread.sleep(2000);
+		
+		
+	}
+	
+	
+	@Then("^user delete all contacts$")
+	public void delete_all_contacts()
+	{
+		//Select all name by clicking on checkbox
+		driver.findElement(By.xpath("//input[@type='checkbox']")).click();
+		//click on dropdown
+		driver.findElement(By.name("action")).click();
+		//select Delete
+		driver.findElement(By.xpath("//div[@role='option' and @class='item' ]")).click();
+		//Click on checkmark button
+		driver.findElement(By.xpath("//div[@role='button']")).click();	
+		//click on "Delete" button
+		driver.findElement(By.xpath("//button[@class='ui primary button']")).click();
+		
 		
 	}
 	
@@ -86,6 +107,7 @@ public class CRMCreateNewContact {
 	@Then("^close the browser$")
 	public void close_browser()
 	{
+		
 		driver.quit();
 	}
 
