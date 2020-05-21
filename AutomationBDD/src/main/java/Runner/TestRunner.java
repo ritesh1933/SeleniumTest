@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 	dryRun = true, //to check mapping is proper between feature file and step definition file.
 	monochrome = true, //Display the console output in proper readable format
 	strict = true, //it will check if any step is not defined in step definition file
-	tags = {"@RegressionTest, @SmokeTest"} 
+	tags = {"~@RegressionTest", "~@SmokeTest"} 
 	
 	)
 
@@ -25,3 +25,4 @@ public class TestRunner {
 
 //OR: tags = {"@RegressionTest, @SmokeTest"} --execute all test tagged as only @SmokeTest OR @RegressionTest
 //AND: tags = {"@RegressionTest", "@SmokeTest"} --execute all test that have tagged as both @SmokeTest AND @RegressionTest
+//		    = {"~@RegressionTest, @SmokeTest"} -- to ignore particular tag. It will not run Regression test in this case
