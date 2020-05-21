@@ -1,9 +1,12 @@
 package StepDefinition;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -71,17 +74,31 @@ public class CRMCreateNewContact {
 	
 	
 
-	@Then("^user enters contact details \"(.*)\" and \"(.*)\" and \"(.*)\"$")
-	public void enter_contact_details(String firstname, String lastname, String position) throws InterruptedException
+	@Then("^user enters contact details$")
+	public void enter_contact_details(DataTable contactInfo) throws InterruptedException
 	{
+		for (Map<String, String> data : contactInfo.asMaps(String.class, String.class))
+			
+		{	
 		
-		driver.findElement(By.name("first_name")).sendKeys(firstname);
-		driver.findElement(By.name("last_name")).sendKeys(lastname);
-		driver.findElement(By.name("position")).sendKeys(position);
+		//Enter data 
+		driver.findElement(By.name("first_name")).sendKeys(data.get("firstname"));
+		driver.findElement(By.name("last_name")).sendKeys(data.get("lastname"));
+		driver.findElement(By.name("position")).sendKeys(data.get("position"));
+		
+		//Click on Save button
 		driver.findElement(By.xpath("//button[contains(text(),'Save')]")).click();
-		
 		Thread.sleep(2000);
 		
+		//Click on Contact button
+		driver.findElement(By.xpath("//span[@class='item-text'][contains(text(),'Contacts')]")).click();
+		Thread.sleep(2000);
+		
+		//Click on New button
+		driver.findElement(By.xpath("//button[contains(text(),'New')]")).click();
+		Thread.sleep(2000);
+		
+		}	
 		
 	}
 	
