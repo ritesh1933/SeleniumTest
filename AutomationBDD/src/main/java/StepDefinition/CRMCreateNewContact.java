@@ -121,11 +121,53 @@ public class CRMCreateNewContact {
 	}
 	
 	
+	
+	@Then("^user enters Company details$")
+	public void enter_company_details(DataTable companydetails)
+	{
+		for (Map<String, String> data : companydetails.asMaps(String.class, String.class))
+		{
+		
+		
+			//enter Name
+			driver.findElement(By.name("name")).sendKeys(data.get("Name"));
+			//enter Address
+			driver.findElement(By.name("address")).sendKeys(data.get("Address"));
+			//enter City
+			driver.findElement(By.name("city")).sendKeys(data.get("City"));
+			//enter State
+			driver.findElement(By.name("state")).sendKeys(data.get("State"));
+			//enter zipCode
+			driver.findElement(By.name("zip")).sendKeys(data.get("ZipCode"));
+			//enter Phone Number
+			driver.findElement(By.name("value")).sendKeys(data.get("Phone"));
+			
+			//enter County
+			
+			driver.findElement(By.xpath("//input[@class='search' and @value='United States']")).sendKeys(data.get("Country"));
+			//driver.findElement(By.xpath("//input[@class='search' and @value='United States']")).click();
+			//driver.findElement(By.xpath("//div[@name='country']")).sendKeys(data.get("Country"));
+			
+			//click Save button
+			driver.findElement(By.xpath("//button[contains(text(),'Save')]")).click();
+		
+		}
+	}
+	
+	
 	@Then("^close the browser$")
 	public void close_browser()
 	{
 		
 		driver.quit();
+	}
+	
+	
+	@Then ("^user clicks on Companies button$")
+	public void click_Companies_button() throws InterruptedException
+	{
+		driver.findElement(By.xpath("//span[@class='item-text'][contains(text(),'Companies')]")).click();
+		Thread.sleep(2000);	
 	}
 
 
