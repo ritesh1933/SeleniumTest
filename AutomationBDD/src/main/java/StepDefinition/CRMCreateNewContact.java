@@ -5,6 +5,7 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -25,6 +26,7 @@ public class CRMCreateNewContact {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\rites\\Desktop\\ChromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.get("https://ui.cogmento.com/home");
 	}
 	
@@ -123,7 +125,7 @@ public class CRMCreateNewContact {
 	
 	
 	@Then("^user enters Company details$")
-	public void enter_company_details(DataTable companydetails)
+	public void enter_company_details(DataTable companydetails) throws InterruptedException
 	{
 		for (Map<String, String> data : companydetails.asMaps(String.class, String.class))
 		{
@@ -139,12 +141,21 @@ public class CRMCreateNewContact {
 			driver.findElement(By.name("state")).sendKeys(data.get("State"));
 			//enter zipCode
 			driver.findElement(By.name("zip")).sendKeys(data.get("ZipCode"));
+			Thread.sleep(2000);
+			
+			//enter County
+			driver.findElement(By.xpath("//div[@name='country']")).click();
+			
+			//drpCountry.selectByVisibleText("United States");
+			Thread.sleep(2000);
+			
 			//enter Phone Number
 			driver.findElement(By.name("value")).sendKeys(data.get("Phone"));
 			
-			//enter County
 			
-			driver.findElement(By.xpath("//input[@class='search' and @value='United States']")).sendKeys(data.get("Country"));
+			
+			
+			//driver.findElement(By.xpath("//input[@class='search' and @value='United States']")).sendKeys(data.get("Country"));
 			//driver.findElement(By.xpath("//input[@class='search' and @value='United States']")).click();
 			//driver.findElement(By.xpath("//div[@name='country']")).sendKeys(data.get("Country"));
 			

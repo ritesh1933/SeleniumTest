@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 	dryRun = false, //to check mapping is proper between feature file and step definition file.
 	monochrome = true, //Display the console output in proper readable format
 	strict = true, //it will check if any step is not defined in step definition file
-	tags = {"~@RegressionTest", "~@SmokeTest"} 
+	tags = {"@EndtoEndTest"} 
 	
 	)
 

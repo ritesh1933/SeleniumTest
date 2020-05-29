@@ -29,7 +29,7 @@ Then user is on home page
 Then user moves to new contact page
 Then user delete all contacts
 
-
+@EndtoEndTest
 Scenario: User Create Company
 
 Given user is already on Login Page
@@ -39,5 +39,5 @@ Then user is on home page
 Then user clicks on Companies button
 Then user clicks on New button
 Then user enters Company details
-	| Name                 | Address              | City   | State | ZipCode | Country       | Phone        |
+	| Name                 | Address              | City   | State | ZipCode | Country      | Phone       |
 	| Emerald Technologies | 25133 Sweet Mytle Sq | Aldie  | VA   | 20105   | United States | 571-230-8779 |
