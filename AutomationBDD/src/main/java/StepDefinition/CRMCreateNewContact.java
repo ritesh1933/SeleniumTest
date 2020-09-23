@@ -1,10 +1,15 @@
 package StepDefinition;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
@@ -16,7 +21,30 @@ import junit.framework.Assert;
 public class CRMCreateNewContact {
 	
 
-	WebDriver driver;
+	static WebDriver driver;
+	
+	
+		
+	public static void main() throws IOException {
+		
+		Properties prop = new Properties();
+		FileInputStream ip = new FileInputStream("C:\\Users\\rites\\git\\SeleniumTest\\AutomationBDD\\src\\main\\java\\data.properties");
+		prop.load(ip);
+		String browserName = prop.getProperty("browser");
+		
+		if(browserName.equals("Chrome")) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Library\\.chromedriver.exe");
+			driver = new ChromeDriver();
+			driver.manage().window().maximize();
+			}
+		
+		else if (browserName.equals("FF")){
+			System.setProperty("webdriver.chrome.driver", "C:\\Library\\.geckodriver.exe");
+			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
+		}
+		
+	}
 	
 	
 	@Given("^user is already on Login Page$")
@@ -24,6 +52,7 @@ public class CRMCreateNewContact {
 	
 	{
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\rites\\Desktop\\ChromeDriver\\chromedriver.exe");
+		
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
@@ -31,11 +60,11 @@ public class CRMCreateNewContact {
 	}
 	
 	
-	@When("^user enter username and password$")
-	public void enter_username_password()
+	@When("^user enter username \"(.*)\" and password \"(.*)\"$")
+	public void enter_username_password(String username, String password)
 	{
-		driver.findElement(By.name("email")).sendKeys("ritesh_mohit007@hotmail.com");
-		driver.findElement(By.name("password")).sendKeys("Tomtom$9987");				
+		driver.findElement(By.name("email")).sendKeys(username);
+		driver.findElement(By.name("password")).sendKeys(password);				
 	}
 	
 	
